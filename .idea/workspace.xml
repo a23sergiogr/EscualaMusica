@@ -5,32 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75e18882-d866-46e9-8f26-5e7a8935e908" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DatabasePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DynamicDatabaseInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/EstructuraWebBásica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Navegacion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Outer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Asiste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Clase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Estudiante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Evalua.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Imparte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Persona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Profesor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Telefono.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/EstudianteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/PersonaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ProfesorDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EscolaMusicaConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EscolaMusicaConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DatabasePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DynamicDatabaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DynamicDatabaseInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EstructuraWebBásica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Outer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Outer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Asiste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Clase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Estudiante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Evalua.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Imparte.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Persona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Profesor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/clases/Telefono.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/DAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/EstudianteDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/PersonaDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ProfesorDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../UD3 - Calculadora simple/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../UD3 - Calculadora simple/Calculadora.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,17 +40,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2pkADxyIsBf8C64UsZ2hpa5Pg55" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.EstructuraWebBásica.executor": "Run",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -80,7 +75,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EstructuraWebBásica">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="EstructuraWebBásica" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.EstructuraWebBásica" />
       <module name="EscolaMusica" />
@@ -109,8 +104,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EstructuraWebBásica" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.EstructuraWebBásica" />
       </list>
     </recent_temporary>
   </component>
@@ -124,5 +119,8 @@
       <updated>1733299584753</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
