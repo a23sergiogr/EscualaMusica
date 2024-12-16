@@ -71,7 +71,7 @@ public class AccesoBBDD {
             query.append(column).append(" = ?, ");
         }
         query.setLength(query.length() - 2); // Eliminar última coma
-        query.append(" WHERE id = ?");
+        query.append(" WHERE id_persona = ?");
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query.toString())) {
             int index = 1;
@@ -87,7 +87,7 @@ public class AccesoBBDD {
     }
 
     public void deleteValue(int id) {
-        String query = "DELETE FROM " + tableName + " WHERE id = ?";
+        String query = "DELETE FROM " + tableName + " WHERE id_persona = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();

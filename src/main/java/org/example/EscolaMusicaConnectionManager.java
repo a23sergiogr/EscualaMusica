@@ -10,7 +10,7 @@ public class EscolaMusicaConnectionManager {
     private Connection connection;
 
     // Usando ruta relativa para la base de datos
-    private final String URL = "jdbc:sqlite:D:\\MaquinasVirtuais\\a23sergiogr\\AD_BD\\h2biblioteca\\EscuelaMusicaDos.db";
+    private final String URL = "jdbc:sqlite:src\\main\\resources\\EscuelaMusicaDos.db";
     private final String USER = "";  // SQLite no requiere usuario ni contraseña
     private final String PASSWORD = ""; // Si fuera necesario
 

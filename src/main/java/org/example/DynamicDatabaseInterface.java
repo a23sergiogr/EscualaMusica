@@ -13,7 +13,7 @@ public class DynamicDatabaseInterface extends JPanel {
     private JPanel formPanel;
     private List<JTextField> fields;
     private List<String> columnNames;
-    private JButton btnAdd, btnEdit, btnDelete;
+    private JButton btnAdd, btnEdit, btnDelete, btnPDF;
     private static DynamicDatabaseInterface instance;
 
     public static DynamicDatabaseInterface getInstance(){
@@ -26,24 +26,30 @@ public class DynamicDatabaseInterface extends JPanel {
     private DynamicDatabaseInterface() {
 
         // Configurar el layout principal
-        setLayout(new BorderLayout());
+        setLayout(new GridLayout(0, 2, 10, 10));
+
+        JPanel agrupacion = new JPanel(new BorderLayout());
 
         // Crear el modelo de tabla
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
-        add(scrollPane, BorderLayout.CENTER);
+        agrupacion.add(scrollPane, BorderLayout.CENTER);
+        add(agrupacion, BorderLayout.CENTER);
 
         // Crear el panel de botones
-        JPanel buttonPanel = new JPanel();
+        JPanel buttonPanel = new JPanel(new GridLayout(0, 5));
         btnAdd = new JButton("Add Record");
         btnEdit = new JButton("Edit Record");
         btnDelete = new JButton("Delete Record");
+        btnPDF = new JButton("Export to Pdf");
 
         buttonPanel.add(btnAdd);
         buttonPanel.add(btnEdit);
         buttonPanel.add(btnDelete);
-        add(buttonPanel, BorderLayout.SOUTH);
+        buttonPanel.add(new JPanel());
+        buttonPanel.add(btnPDF);
+        agrupacion.add(buttonPanel, BorderLayout.SOUTH);
 
         // Listeners para los botones
         btnAdd.addActionListener(e -> addRecord());
@@ -51,7 +57,7 @@ public class DynamicDatabaseInterface extends JPanel {
         btnDelete.addActionListener(e -> deleteRecord());
 
 
-        formPanel = new JPanel(new GridLayout(0, 2)); // Formulario con dos columnas (etiqueta y campo)
+        formPanel = new JPanel(new GridLayout(0, 2, 30, 10)); // Formulario con dos columnas (etiqueta y campo)
         fields = new ArrayList<>(); // Inicializa la lista de campos
 
         add(formPanel, BorderLayout.EAST); // Añade el panel de formulario al lado derecho
@@ -165,13 +171,16 @@ public class DynamicDatabaseInterface extends JPanel {
     public void buildForm(List<String> columnNames) {
         formPanel.removeAll(); // Limpia cualquier configuración previa del formulario
         fields.clear(); // Limpia la lista de campos anteriores
+        formPanel.setLayout(new GridLayout(12, 2, 5, 20));
         this.columnNames = columnNames; // Almacena los nombres de las columnas
 
         for (String columnName : columnNames) {
+            JPanel edit = new JPanel(new GridLayout(0, 2));
             JLabel label = new JLabel(columnName + ":");
             JTextField textField = new JTextField();
-            formPanel.add(label); // Añade la etiqueta al formulario
-            formPanel.add(textField); // Añade el campo de texto al formulario
+            edit.add(label); // Añade la etiqueta al formulario
+            edit.add(textField); // Añade el campo de texto al formulario
+            formPanel.add(edit);
             fields.add(textField); // Guarda el campo de texto en la lista
         }
 
