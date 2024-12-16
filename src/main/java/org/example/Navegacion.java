@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class Navegacion extends JPanel {
     public DynamicDatabaseInterface panel;
@@ -72,27 +71,18 @@ public class Navegacion extends JPanel {
         btnProfesorado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                toggleContentVisibility(headerContent);
-                articleContent.setVisible(false);
-                footerContent.setVisible(false);
             }
         });
 
         btnAlumnado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                toggleContentVisibility(articleContent);
-                headerContent.setVisible(false);
-                footerContent.setVisible(false);
             }
         });
 
         btnFooter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                toggleContentVisibility(footerContent);
-                headerContent.setVisible(false);
-                articleContent.setVisible(false);
             }
         });
 
@@ -108,10 +98,5 @@ public class Navegacion extends JPanel {
         contentPanel.add(new JLabel(labelText));
         contentPanel.setSize(new Dimension(400, 100)); // ensure a fixed height for content
         return contentPanel;
-    }
-
-    // Helper method to toggle content visibility
-    private void toggleContentVisibility(JPanel panel) {
-        panel.setVisible(!panel.isVisible());
     }
 }
