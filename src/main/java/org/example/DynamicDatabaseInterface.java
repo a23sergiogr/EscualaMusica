@@ -6,6 +6,8 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicBorders;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.io.FileOutputStream;
@@ -47,6 +49,8 @@ public class DynamicDatabaseInterface extends JPanel {
 
         JPanel agrupacion = new JPanel(new BorderLayout());
 
+        this.setBorder(new EmptyBorder(40, 80, 40, 0));
+
         // Crear el modelo de tabla
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
@@ -55,7 +59,7 @@ public class DynamicDatabaseInterface extends JPanel {
         add(agrupacion, BorderLayout.CENTER);
 
         // Crear el panel de botones
-        JPanel buttonPanel = new JPanel(new GridLayout(0, 5));
+        JPanel buttonPanel = new JPanel(new GridLayout(0, 5, 5, 10));
         btnAdd = new JButton("Add Record");
         btnEdit = new JButton("Edit Record");
         btnDelete = new JButton("Delete Record");
@@ -190,12 +194,14 @@ public class DynamicDatabaseInterface extends JPanel {
     public void buildForm(List<String> columnNames) {
         formPanel.removeAll(); // Limpia cualquier configuración previa del formulario
         fields.clear(); // Limpia la lista de campos anteriores
-        formPanel.setLayout(new GridLayout(12, 2, 5, 20));
+        formPanel.setLayout(new GridLayout(16, 2, 5, 20));
+        formPanel.setBorder(new EmptyBorder(20, 50, 20, 75));
         this.columnNames = columnNames; // Almacena los nombres de las columnas
 
         for (String columnName : columnNames) {
             JPanel edit = new JPanel(new GridLayout(0, 2));
             JLabel label = new JLabel(columnName + ":");
+            label.setBorder(new EmptyBorder(0, 50, 0, 0));
             JTextField textField = new JTextField();
             edit.add(label); // Añade la etiqueta al formulario
             edit.add(textField); // Añade el campo de texto al formulario
