@@ -34,57 +34,21 @@ public class Navegacion extends JPanel {
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
 
-        // Create buttons and their corresponding content panels
-        JButton btnProfesorado = new JButton("Profesorado");
-        JPanel headerContent = createContentPanel("This is the Profesorado content", new Color(0xf5f5f5));
-        btnProfesorado.setBackground(new Color(0xf5f5f5));
-        btnProfesorado.setForeground(new Color(0x6a4d8c));
-        btnProfesorado.setFont(new Font("Times", Font.BOLD, 18));
+        for (TablesNames value : TablesNames.values()) {
+            JButton btnProfesorado = new JButton(value.name().toUpperCase());
+            btnProfesorado.setBackground(new Color(0xf5f5f5));
+            btnProfesorado.setForeground(new Color(0x6a4d8c));
+            btnProfesorado.setFont(new Font("Times", Font.BOLD, 18));
 
-        JButton btnAlumnado = new JButton("Alumnado");
-        JPanel articleContent = createContentPanel("This is the Alumnado content", new Color(0xf5f5f5));
-        btnAlumnado.setBackground(new Color(0xf5f5f5));
-        btnAlumnado.setForeground(new Color(0x6a4d8c));
-        btnAlumnado.setFont(new Font("Times", Font.BOLD, 18));
-        btnAlumnado.setPreferredSize(new Dimension(400, 50));
+            sideNavPanel.add(btnProfesorado);
 
-        JButton btnFooter = new JButton("Footer");
-        JPanel footerContent = createContentPanel("This is the Footer content", new Color(0xf5f5f5));
-        btnFooter.setBackground(new Color(0xf5f5f5));
-        btnFooter.setForeground(new Color(0x6a4d8c));
-        btnFooter.setFont(new Font("Times", Font.BOLD, 18));
-
-        // Initially hide all content sections
-        headerContent.setVisible(false);
-        articleContent.setVisible(false);
-        footerContent.setVisible(false);
-
-        // Add buttons and content panels to the side navigation panel
-        sideNavPanel.add(btnProfesorado);
-        sideNavPanel.add(headerContent);
-        sideNavPanel.add(btnAlumnado);
-        sideNavPanel.add(articleContent);
-        sideNavPanel.add(btnFooter);
-        sideNavPanel.add(footerContent);
-
-        // Add action listeners for the buttons to show content below them
-        btnProfesorado.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
-
-        btnAlumnado.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
-
-        btnFooter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
+            // Add action listeners for the buttons to show content below them
+            btnProfesorado.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+        }
 
         // Add the side navigation and content panel to the main panel
         this.add(sideNavPanel, BorderLayout.WEST);
