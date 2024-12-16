@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75e18882-d866-46e9-8f26-5e7a8935e908" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ResultSetHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AccesoBBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AccesoBBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DynamicDatabaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DynamicDatabaseInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Navegacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Navegacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Outer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Outer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../UD3 - Calculadora simple/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../UD3 - Calculadora simple/Calculadora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/DynamicDatabaseInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/DynamicDatabaseInterface.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,22 +39,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.EstructuraWebBásica.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/a23sergiogr/Downloads/sqljdbc_12.8.1.0_enu/sqljdbc_12.8/enu/jars/mssql-jdbc-12.8.1.jre11.jar&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/a23sergiogr/Desktop/DI/EscolaMúsica/inplementación/java/EscolaMusica/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.EstructuraWebBásica.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Maven.EscolaMusica [clean,install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sergi/OneDrive/Escritorio/tareas/Desarrollo deInterfaces/EscuelaMusicaJava",
+    "onboarding.tips.debug.path": "C:/Users/a23sergiogr/Desktop/DI/EscolaMúsica/inplementación/java/EscolaMusica/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\a23sergiogr\Desktop\DI\EscolaMúsica\inplementación\java\EscolaMusica\src\main\java\org\example" />
@@ -65,6 +63,11 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="EstructuraWebBásica" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

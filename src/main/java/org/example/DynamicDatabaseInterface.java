@@ -1,10 +1,26 @@
 package org.example;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 
 
 public class DynamicDatabaseInterface extends JPanel {
@@ -15,6 +31,7 @@ public class DynamicDatabaseInterface extends JPanel {
     private List<String> columnNames;
     private JButton btnAdd, btnEdit, btnDelete, btnPDF;
     private static DynamicDatabaseInterface instance;
+    private String tableName;
 
     public static DynamicDatabaseInterface getInstance(){
         if(instance == null){
@@ -55,6 +72,7 @@ public class DynamicDatabaseInterface extends JPanel {
         btnAdd.addActionListener(e -> addRecord());
         btnEdit.addActionListener(e -> editRecord());
         btnDelete.addActionListener(e -> deleteRecord());
+        btnPDF.addActionListener(e -> exportToPdf());
 
 
         formPanel = new JPanel(new GridLayout(0, 2, 30, 10)); // Formulario con dos columnas (etiqueta y campo)
@@ -66,6 +84,7 @@ public class DynamicDatabaseInterface extends JPanel {
 
     public void loadData(String tableName) {
         AccesoBBDD accesoBBDD = AccesoBBDD.getInstance();
+        this.tableName = tableName;
         accesoBBDD.showTable(tableName, resultSet -> {
             try {
                 tableModel.setRowCount(0);
@@ -188,4 +207,90 @@ public class DynamicDatabaseInterface extends JPanel {
         formPanel.repaint();
     }
 
+    public void exportToPdf() {
+        String outputPath = "pdfs\\" + tableName + "_reporte_datos.pdf";
+        Document document = new Document();
+
+        try {
+            // Crear el escritor para el documento PDF
+            PdfWriter.getInstance(document, new FileOutputStream(outputPath));
+
+            // Abrir el documento
+            document.open();
+
+            // Crear fuentes para los textos
+            Font titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+            Font subtitleFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+            Font normalFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL);
+
+            // 1. Título del informe
+            Paragraph title = new Paragraph("Informe de Datos", titleFont);
+            title.setAlignment(Element.ALIGN_CENTER);
+            document.add(title);
+
+            document.add(new Paragraph("\n")); // Espacio en blanco
+
+            // 2. Fecha de generación
+            String currentDate = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+            Paragraph date = new Paragraph("Fecha de generación: " + currentDate, subtitleFont);
+            date.setAlignment(Element.ALIGN_RIGHT);
+            document.add(date);
+
+            document.add(new Paragraph("\n")); // Espacio en blanco
+
+            // 3. Introducción
+            Paragraph introduction = new Paragraph(
+                    "Este informe presenta los datos recopilados de la tabla proporcionada. El objetivo es analizar y " +
+                            "mostrar la información de manera clara y organizada.",
+                    normalFont
+            );
+            introduction.setAlignment(Element.ALIGN_JUSTIFIED);
+            document.add(introduction);
+
+            document.add(new Paragraph("\n")); // Espacio en blanco
+
+            // 4. Datos
+            Paragraph dataSection = new Paragraph("Datos de la Tabla", subtitleFont);
+            dataSection.setAlignment(Element.ALIGN_LEFT);
+            document.add(dataSection);
+
+            document.add(new Paragraph("\n")); // Espacio en blanco
+
+            // Crear una tabla PDF con tantas columnas como la JTable
+            int columnCount = table.getColumnCount();
+            PdfPTable pdfTable = new PdfPTable(columnCount);
+            pdfTable.setWidthPercentage(100); // Ajustar al ancho del documento
+
+            // Agregar encabezados al PDF
+            for (int col = 0; col < columnCount; col++) {
+                String header = table.getColumnName(col);
+                PdfPCell cell = new PdfPCell(new Phrase(header, subtitleFont));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                pdfTable.addCell(cell);
+            }
+
+            // Agregar los datos de la JTable al PDF
+            int rowCount = table.getRowCount();
+            for (int row = 0; row < rowCount; row++) {
+                for (int col = 0; col < columnCount; col++) {
+                    Object cellValue = table.getValueAt(row, col);
+                    String cellText = cellValue == null ? "" : cellValue.toString();
+                    PdfPCell cell = new PdfPCell(new Phrase(cellText, normalFont));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfTable.addCell(cell);
+                }
+            }
+
+            // Añadir la tabla PDF al documento
+            document.add(pdfTable);
+
+            System.out.println("PDF creado exitosamente en: " + outputPath);
+        } catch (DocumentException | IOException e) {
+            System.out.println("Error al crear el PDF: " + e.getMessage());
+        } finally {
+            // Cerrar el documento
+            document.close();
+        }
+    }
 }
