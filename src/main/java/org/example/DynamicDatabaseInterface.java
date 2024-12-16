@@ -162,8 +162,8 @@ public class DynamicDatabaseInterface extends JPanel {
             // Ejecutar la consulta
             preparedStatement.executeUpdate();
 
-            // Actualizar la tabla cargando los datos nuevamente
-            refreshTable(connection);
+            // Actualizear la tabla cargando los datos nuevamente
+            refreshTable();
 
             // Limpiar los campos
             clearFormFields();
@@ -209,7 +209,7 @@ public class DynamicDatabaseInterface extends JPanel {
             preparedStatement.executeUpdate();
 
             // Actualizar la tabla cargando los datos nuevamente
-            refreshTable(connection);
+            refreshTable();
 
             // Limpiar los campos y salir del modo edición
             clearFormFields();
@@ -239,16 +239,8 @@ public class DynamicDatabaseInterface extends JPanel {
             EscolaMusicaConnectionManager connectionManager = EscolaMusicaConnectionManager.getInstance();
             Connection connection = connectionManager.getConnection();
 
-            // Crear SQL para eliminar
-            String sql = "DELETE FROM estudiante WHERE " + columnNames.get(0) + " = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, selectedId);
-
-            // Ejecutar la consulta
-            preparedStatement.executeUpdate();
-
             // Actualizar la tabla cargando los datos nuevamente
-            refreshTable(connection);
+            refreshTable();
 
             // Limpiar los campos y salir del modo edición
             clearFormFields();
@@ -262,10 +254,9 @@ public class DynamicDatabaseInterface extends JPanel {
         }
     }
 
-    private void refreshTable(Connection connection) throws SQLException {
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM estudiante");
-        loadData(resultSet); // Usar el método existente para recargar la tabla
+    private void refreshTable() throws SQLException {
+        AccesoBBDD accesoBBDD = AccesoBBDD.getInstance();
+        accesoBBDD.showTable(TablesNames.ESTUDIANTE);
     }
 
     private void clearFormFields() {

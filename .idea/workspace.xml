@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75e18882-d866-46e9-8f26-5e7a8935e908" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AccesoBBDD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/TablesNames.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AccesoBBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AccesoBBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DynamicDatabaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DynamicDatabaseInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Navegacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Navegacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../UD3 - Calculadora simple/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../UD3 - Calculadora simple/Calculadora.java" afterDir="false" />

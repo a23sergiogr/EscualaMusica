@@ -43,10 +43,8 @@ public class Navegacion extends JPanel {
             sideNavPanel.add(btnProfesorado);
 
             // Add action listeners for the buttons to show content below them
-            btnProfesorado.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                }
+            btnProfesorado.addActionListener(e -> {
+
             });
         }
 
