@@ -2,12 +2,14 @@ package org.example;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.List;
 
 public class AccesoBBDD {
     private final Outer ventana;
     private final DynamicDatabaseInterface databaseInterface;
     private final Connection connection;
     private static AccesoBBDD instance;
+    private static String tableName;
 
     private AccesoBBDD(){
         this.connection = EscolaMusicaConnectionManager.getInstance().getConnection();
@@ -22,50 +24,77 @@ public class AccesoBBDD {
         return instance;
     }
 
-    public void showTable(TablesNames name) {
-        String query = "SELECT * FROM " + name.name();
+    public void showTable(String tableName, ResultSetHandler handler) {
+        this.tableName = tableName;
+        String query = "SELECT * FROM " + tableName;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
-            databaseInterface.loadData(resultSet); // Carga los datos en la tabla visible
+            handler.handle(resultSet); // Pasar el ResultSet a un manejador definido por la interfaz
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Error fetching data from the database",
-                    "Database Error",
-                    JOptionPane.ERROR_MESSAGE
-            );
+            JOptionPane.showMessageDialog(null, "Error fetching data: " + e.getMessage(),
+                    "Database Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void addValue(PreparedStatement statement){
-
+    public void showTable(ResultSetHandler handler) {
+        String query = "SELECT * FROM " + tableName;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            handler.handle(resultSet); // Pasar el ResultSet a un manejador definido por la interfaz
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error fetching data: " + e.getMessage(),
+                    "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    public void deleteValue(TablesNames name, Integer id){
-        try {
-            String query = "DELETE FROM " + name.name() + " WHERE id = ?";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, id);
-                int rowsAffected = preparedStatement.executeUpdate();
+    public void addValue(List<String> columns, List<String> values) {
+        StringBuilder query = new StringBuilder("INSERT INTO ").append(tableName).append(" (");
+        query.append(String.join(", ", columns)).append(") VALUES (");
+        query.append("?,".repeat(columns.size()));
+        query.setLength(query.length() - 1); // Eliminar última coma
+        query.append(")");
 
-                if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(null, "Record deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "No record found with ID: " + id, "Warning", JOptionPane.WARNING_MESSAGE);
-                }
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query.toString())) {
+            for (int i = 0; i < values.size(); i++) {
+                preparedStatement.setString(i + 1, values.get(i));
             }
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Error deleting data: " + e.getMessage(),
-                    "Database Error",
-                    JOptionPane.ERROR_MESSAGE
-            );
+            JOptionPane.showMessageDialog(null, "Error adding value: " + e.getMessage(),
+                    "Database Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void updateValue(TablesNames name, String values){
+    public void updateValue(int id, List<String> columns, List<String> values) {
+        StringBuilder query = new StringBuilder("UPDATE ").append(tableName).append(" SET ");
+        for (String column : columns) {
+            query.append(column).append(" = ?, ");
+        }
+        query.setLength(query.length() - 2); // Eliminar última coma
+        query.append(" WHERE id = ?");
 
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query.toString())) {
+            int index = 1;
+            for (String value : values) {
+                preparedStatement.setString(index++, value);
+            }
+            preparedStatement.setInt(index, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error updating value: " + e.getMessage(),
+                    "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void deleteValue(int id) {
+        String query = "DELETE FROM " + tableName + " WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error deleting value: " + e.getMessage(),
+                    "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }

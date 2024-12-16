@@ -32,7 +32,7 @@ public class Outer extends JFrame {
         JPanel footer = new JPanel(new BorderLayout());
 
         // Inicializar la instancia compartida
-        databaseInterface = new DynamicDatabaseInterface();
+        databaseInterface = DynamicDatabaseInterface.getInstance();
 
         JLabel hh = new JLabel("Escolas FunkRock", SwingConstants.LEFT);
         hh.setFont(new Font("Arial", Font.BOLD, 40));

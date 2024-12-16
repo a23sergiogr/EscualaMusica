@@ -43,9 +43,7 @@ public class Navegacion extends JPanel {
             sideNavPanel.add(btnProfesorado);
 
             // Add action listeners for the buttons to show content below them
-            btnProfesorado.addActionListener(e -> {
-
-            });
+            btnProfesorado.addActionListener(e -> DynamicDatabaseInterface.getInstance().loadData(value.name()));
         }
 
         // Add the side navigation and content panel to the main panel
